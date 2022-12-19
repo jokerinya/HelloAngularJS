@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AngularJS Directives and Expressions</title>
+    </head>
+    <body ng-init="name='James'">
+        <!-- For more visit: https://docs.angularjs.org/api/ng/directive/ -->
+        <div ng-hide="isHidden">
+            Name: <input type="text" ng-model="name" />{{ name }}
+            <span ng-bind="name"></span>
+        </div>
+        Hide: <input type="checkbox" ng-model="isHidden" />
+        <br />
+        <button ng-click="name='Michelle'">Change Name</button>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </body>
+</html>
