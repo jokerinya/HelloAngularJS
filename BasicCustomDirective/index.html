@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demoApp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AngularJS Basic Custom Directive</title>
+    </head>
+    <body ng-controller="directivesController">
+        <p>Demo:</p>
+        <hello-world></hello-world>
+        <hr />
+        <p>Shared Scope</p>
+        <shared-scope></shared-scope>
+        <hr />
+        <p>Isolated Scope, there won't be a customer data</p>
+        <isolate-scope></isolate-scope>
+        <hr />
+        <p>
+            Isolated Scope with string, this data binded to customer's name and
+            it is a one way binding. Customer's data comes from controller.
+        </p>
+        <isolate-scope-with-string
+            name="{{customer.name}}"
+            livingcity="{{customer.city}}"
+        ></isolate-scope-with-string>
+        <hr />
+        <p>
+            Isolated Scope with object, this data binded two way Customer's data
+            comes from controller. There is no brackets '{' !!
+        </p>
+        <isolate-scope-with-object
+            datasource="customer "
+        ></isolate-scope-with-object>
+        <hr />
+        <p>
+            Isolated Scope with event, this data binded two way Customer's data
+            comes from controller. There is no brackets '{' !!. Data will be
+            changed by parent, child will invoke the parent's function.
+        </p>
+        <isolate-scope-with-event
+            datasource="customer"
+            action="changeName()"
+        ></isolate-scope-with-event>
+        <hr />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="./app.js"></script>
+        <script src="./directivesController.js"></script>
+        <script src="./helloWorldDirective.js"></script>
+        <script src="./sharedScopeDirective.js"></script>
+        <script src="./isolateScopeDirective.js"></script>
+        <script src="./isolateScopeWithStringDirective.js"></script>
+        <script src="./isolateScopeWithObjectDirective.js"></script>
+        <script src="./isolateScopeWithEventDirective.js"></script>
+    </body>
+</html>
