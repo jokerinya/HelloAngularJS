@@ -1,0 +1,25 @@
+<h2>{{ appSettings.title }}</h2>
+<!-- Below will filter according to name (only customerFilter will look all the fields) -->
+Filter: <input type="text" ng-model="customerFilter.name" />
+<br />
+<table>
+    <tr>
+        <th ng-click="doSort('name')">Name</th>
+        <th ng-click="doSort('city')">City</th>
+        <th ng-click="doSort('orderTotal')">Order total</th>
+        <th ng-click="doSort('joined')">Joined</th>
+        <th>&nbsp;</th>
+    </tr>
+    <!-- <tr ng-repeat="cust in customers | limitTo: 2" | orderBy:'name'"> -->
+    <tr
+        ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse"
+    >
+        <td>{{cust.name | uppercase }}</td>
+        <td>{{cust.city | lowercase }}</td>
+        <!-- For differenc currency's symbols -->
+        <td>{{cust.orderTotal | currency:'₺'}}</td>
+        <td>{{cust.joined | date:'longDate'}}</td>
+        <td><a href="#/orders/{{cust.id}}">View orders</a></td>
+    </tr>
+</table>
+<footer>Version: {{ appSettings.version }}</footer>
