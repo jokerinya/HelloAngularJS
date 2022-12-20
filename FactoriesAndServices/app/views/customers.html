@@ -19,7 +19,7 @@ Filter: <input type="text" ng-model="customerFilter.name" />
         <!-- For differenc currency's symbols -->
         <td>{{cust.orderTotal | currency:'₺'}}</td>
         <td>{{cust.joined | date:'longDate'}}</td>
-        <td><a href="#/orders/{{cust.id}}">View orders</a></td>
+        <td><a href="{{'#/orders/' + cust.id}}">View orders</a></td>
     </tr>
 </table>
 <footer>Version: {{ appSettings.version }}</footer>
